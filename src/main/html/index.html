@@ -41,6 +41,11 @@
       } else {
         url = "https://test.mentornow.com:"+location.port+"/apidocs/webapi/swagger.json";
       }
+      if(location.port =="4000"){
+        url = "https://test.mentornow.com:4000/apidocs/webapi/swagger.json";
+      }else{
+        url = "https://test.mentornow.com:5000/apidocs/adminapi/swagger.json";
+      }
 
       hljs.configure({
         highlightSizeThreshold: 5000
