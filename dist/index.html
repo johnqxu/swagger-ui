@@ -35,11 +35,10 @@
 
   <script type="text/javascript">
     $(function () {
-      var url = window.location.search.match(/url=([^&]+)/);
-      if (url && url.length > 1) {
-        url = decodeURIComponent(url[1]);
-      } else {
-        url = "https://test.mentornow.com:"+location.port+"/apidocs/webapi/swagger.json";
+      if(location.port =="4000"){
+        url = "https://test.mentornow.com:4000/apidocs/webapi/swagger.json";
+      }else if(location.port =="5000"){
+        url = "https://test.mentornow.com:5000/apidocs/adminapi/swagger.json";
       }
 
       hljs.configure({
