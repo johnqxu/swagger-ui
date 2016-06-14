@@ -35,10 +35,12 @@
 
   <script type="text/javascript">
     $(function () {
-      if(location.port =="4000"){
+      if(location.url.indexOf("webapi") != -1){
         url = "https://test.mentornow.com:4000/apidocs/webapi/swagger.json";
-      }else if(location.port =="5000"){
-        url = "https://test.mentornow.com:5000/apidocs/adminapi/swagger.json";
+      }else if(location.url.indexOf("adminapi") != -1){
+        url = "https://test.mentornow.com:4000/apidocs/adminapi/swagger.json";
+      }else if(location.url.indexOf("tencentapi") != -1){
+        url = "https://test.mentornow.com:4000/apidocs/tencentapi/swagger.json";
       }
 
       hljs.configure({
@@ -94,11 +96,10 @@
   <div class="swagger-ui-wrap">
     <a id="logo" href="http://swagger.io"><img class="logo__img" alt="swagger" height="30" width="30" src="images/logo_small.png" /><span class="logo__title">swagger</span></a>
     <form id='api_selector'>
-      <!-- <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div> -->
       <div class='input'>
         <input id="input_baseUrl" name="baseUrl" hidden/>
-        <input type="button" onclick="javascript: window.location.href='https://test.mentornow.com:4000/swagger-ui/'" value="goto webapi"/>
-        <input type="button" onclick="javascript: window.location.href='https://test.mentornow.com:5000/swagger-ui/'" value="goto adminapi"/>
+        <input type="button" onclick="javascript: window.location.href='https://test.mentornow.com:4000/webapi/swagger-ui/'" value="goto webapi"/>
+        <input type="button" onclick="javascript: window.location.href='https://test.mentornow.com:4000/adminapi/swagger-ui/'" value="goto adminapi"/>
       </div>
       <div id='auth_container'></div>
       <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
